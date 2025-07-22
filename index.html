@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>دانلود نسخه 1.21 ماینکرافت</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --main-color: #7209b7;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    header:hover {
+      border-block-end: 2px solid #7209b7;
+      box-shadow: 0 0 20px #7209b7;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-top: -20px;
+      margin-bottom: 44px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 10px var(--main-color);
+      transition: 0.8s ease;
+    }
+
+    .logo span {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 36px var(--main-color);
+    }
+
+    .menu-btn {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+      position: relative;
+      padding: 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-btn:hover, .menu-btn.open {
+      color: #7209b7;
+    }
+
+    .menu-btn:hover .bar {
+      background-color: #7209b7;
+    }
+
+    .menu-btn .bar {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin: 6px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .menu-btn.open .bar1 {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-btn.open .bar2 {
+      opacity: 0;
+    }
+
+    .menu-btn.open .bar3 {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--main-color);
+      transition: 0.7s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100px;
+        right: 10px;
+        padding: 20px;
+        border-radius: 8px;
+        gap: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+    .e {
+      text-align: right;
+    }
+
+    /* استایل جدید برای قسمت توضیحات */
+    .update-info {
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .update-info h2 {
+      color: var(--main-color);
+    }
+
+    .download-btns {
+      text-align: center;
+    }
+
+    /* استایل دکمه‌ها */
+    .download-btn, .download-btn-bedrock {
+      background-color: var(--main-color);
+      color: white;
+      font-size: 18px;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: right;
+      margin: 20px auto;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      direction: rtl;
+    }
+
+    .download-btn:hover, .download-btn-bedrock:hover {
+      background-color: #5d0a99;
+    }
+
+    /* دکمه دانلود بدراک */
+    .download-btn-bedrock {
+      background-color: #38b000; /* رنگ سبز برای بدراک */
+    }
+
+    .download-btn-bedrock:hover {
+      background-color: #2e8b00;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://cdn.imgurl.ir/uploads/d54135_avatar-1009848210_3.jpg" alt="لوگو" />
+      <span>حکومت ماینکرافت</span>
+    </div>
+    <button class="menu-btn" onclick="toggleMenu()">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
+    <nav id="navMenu">
+      <a href="https://ender-brine.github.io/main-es" target="_blank">خانه</a>
+      <a href="#">درباره ما</a>
+      <a href="https://splus.ir/hokomatmine" target="_blank">کانال</a>
+      <a href="mailto:eeee@gmail.com" target="_blank">پشتیبانی</a>
+    </nav>
+  </header>
+
+  <div class="update-info">
+    <h2>ویژگی‌های جدید آپدیت 1.21 ماینکرافت و دانلود</h2>
+    <p style="font-size: large">
+      آپدیت جدید ماینکرافت (نسخه 1.21) امکانات زیادی به بازی اضافه کرده است که تجربه بازی را جذاب‌تر کرده است. در این نسخه شاهد اضافه شدن ویژگی‌های جدید از جمله بایوم‌ها، ماب‌ها، آیتم‌ها، و همچنین بهبودهای فنی و گرافیکی هستیم. در زیر به برخی از مهم‌ترین ویژگی‌ها اشاره می‌کنیم:
+    </p>
+    <br>
+    <ul>
+      <li><strong>بایوم‌های جدید:</strong> بایوم‌های جدیدی مثل <em>بایوم کوه‌های یخ زده</em>، <em>جنگل‌های تاریک</em> و <em>دشت‌های گل‌دار</em> به بازی اضافه شده است. این بایوم‌ها شامل گیاهان و ویژگی‌های منحصر به فردی هستند که می‌توانید در آن‌ها جستجو کنید.</li>
+      <br>
+      <li><strong>ماب‌های جدید:</strong> در این نسخه ماب‌هایی مثل <em>گرگ‌های شبانه</em> و <em>آرنا</em> به بازی اضافه شده‌اند. این ماب‌ها با ویژگی‌های خاصی مثل تغییر در رفتار و مهارت‌های خاص طراحی شده‌اند.</li>
+      <br>
+      <li><strong>آیتم‌های جدید:</strong> آیتم‌های جدیدی مثل <em>مشتقات سنگ‌های قیمتی</em> و <em>چکش‌های جادویی</em> به بازی اضافه شده‌اند که می‌توانید برای ساخت و ارتقاء ابزارها و سلاح‌های خود از آن‌ها استفاده کنید.</li>
+      <br>
+      <li><strong>گرافیک بهبود یافته:</strong> گرافیک بازی بهبود یافته و در این نسخه شاهد تغییرات در نورپردازی، سایه‌ها، و بافت‌های مختلف هستیم که تجربه بازی را طبیعی‌تر و جذاب‌تر می‌کند.</li>
+      <br>
+      <li><strong>بهبود هوش مصنوعی ماب‌ها:</strong> ماب‌ها با رفتارهای جدید و پیشرفته‌تری به بازی اضافه شده‌اند. اکنون ماب‌ها واکنش‌های بهتری به شرایط مختلف دارند.</li>
+      <br>
+      <li><strong>دستورات جدید:</strong> دستورات جدیدی برای ایجاد شرایط خاص در دنیای بازی به شما این امکان را می‌دهد که دنیای خود را راحت‌تر مدیریت کنید.</li>
+    </ul>
+    <br>
+    <p style="margin-right: 25px">این تنها بخشی از تغییرات بزرگ در آپدیت 1.21 ماینکرافت است. برای دیدن سایر ویژگی‌ها، توصیه می‌شود به وب‌سایت رسمی ماینکرافت مراجعه کنید.</p>
+    <p>___________________________________________________________</p>
+  </div>
+
+  <div class="download-btns">
+    <!-- دکمه دانلود برای نسخه جاوا -->
+    <button class="download-btn" onclick="window.location.href='https://launcher.mojang.com/download/MinecraftInstaller.msi'">دانلود برای جاوا</button>
+
+    <!-- دکمه دانلود برای نسخه بدراک -->
+    <button class="download-btn-bedrock" onclick="window.location.href='https://www.minecraft.net/en-us/download/bedrock'">دانلود برای بدراک</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      const menuButton = document.querySelector(".menu-btn");
+      nav.classList.toggle("show");
+      menuButton.classList.toggle("open");
+    }
+
+    document.addEventListener('click', function(event) {
+      const navMenu = document.getElementById('navMenu');
+      const menuButton = document.querySelector('.menu-btn');
+      if (!navMenu.contains(event.target) && !menuButton.contains(event.target)) {
+        navMenu.classList.remove('show');
+        menuButton.classList.remove('open');
+      }
+    });
+  </script>
+
+<footer style="text-align: center; color: #bbb; padding: 7px 0; background-color: #111; font-size: 14px;">
+  <p>&copy; 2025 - حکومت ماینکرافت</p>
+</footer>
+
+
+</body>
+</html>
